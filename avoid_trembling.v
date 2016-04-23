@@ -1,7 +1,7 @@
 //==================================================================================================
 //  Filename      : avoid_trembling.v
 //  Created On    : 2016-04-18 15:01:39
-//  Last Modified : 2016-04-23 20:10:19
+//  Last Modified : 2016-04-23 21:45:15
 //  Revision      : 
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
@@ -23,34 +23,32 @@ module avoid_trembling(clk,reset,in,out,timer_clr,timer_done);
 		if(reset) begin
 			state=HIGH;
 		end
-		else begin
-			case(state)
-				HIGH: begin
-					timer_clr=1;
-					if(in==0) begin
-						state=WAIT_LOW;
-					end
+		case(state)
+			HIGH: begin
+				timer_clr=1;
+				if(in==0) begin
+					state=WAIT_LOW;
 				end
-				WAIT_LOW: begin
-					timer_clr=0;
-					if(timer_done) begin
-						state=LOW;
-					end
+			end
+			WAIT_LOW: begin
+				timer_clr=0;
+				if(timer_done) begin
+					state=LOW;
 				end
-				LOW: begin
-					timer_clr=1;
-					if(in) begin
-						state=WAIT_HIGH;
-					end
+			end
+			LOW: begin
+				timer_clr=1;
+				if(in) begin
+					state=WAIT_HIGH;
 				end
-				WAIT_HIGH: begin
-					timer_clr=0;
-					if(timer_done) begin
-						state=HIGH;
-					end
+			end
+			WAIT_HIGH: begin
+				timer_clr=0;
+				if(timer_done) begin
+					state=HIGH;
 				end
-			endcase
-		end
+			end
+		endcase
 	end
 
 endmodule

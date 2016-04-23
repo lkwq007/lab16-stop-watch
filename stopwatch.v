@@ -76,9 +76,9 @@ module stopwatch(
 	wire ButtonOut;  
 	  button_press_unit   button_press_unit(
 		.clk(sys_clk),
-		.ButtonIn(ButtonIn),
+		.button_in(ButtonIn),
 		.timer_en(pulse400Hz),
-		.ButtonOut( ButtonOut),
+		.button_out( ButtonOut),
 		.reset(reset));
  
 //--------秒表控制器实例调用-------------------// 
@@ -96,13 +96,18 @@ module stopwatch(
 
 
 //--------计时模块的实例调用-由同学自己添加-------------------//  
-
+	wire[3:0] q_ms;
+	wire[7:0] q_ss,q_mm;
+	stopwatch_counter counter(.clk(sys_clk),.clr(clear),.stop(stop),.count(count),
+								.q_ms(q_ms),.q_ss(q_ss),.q_mm(q_mm),.ci(pulse10Hz),.co());
  
  
  
 
 //-------- 动态显示的实例调用--由同学自己添加-------------------// 	 
-    
+	dynamic_seg_display_5 displayer(.clk(sys_clk),.scan(pulse400Hz),
+									.minute(q_mm),.second(q_ss),.m_second(q_ms),
+									.a(a),.b(b),.c(c),.d(d),.e(e),.f(f),.g(g),.dp(dp),.position(position));    
 
 
 	 
