@@ -1,7 +1,7 @@
 //==================================================================================================
 //  Filename      : synchronizer.v
 //  Created On    : 2016-04-18 15:06:06
-//  Last Modified : 2016-04-18 15:09:21
+//  Last Modified : 2016-04-23 20:00:46
 //  Revision      : 
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
@@ -15,7 +15,7 @@ module synchronizer(asynch_in,clk,reset,synch_out);
 	output synch_out;
 	wire q;
 
-	dffr #(.N(1)) ff_1(.d(asynch_in),.clk(clk),.reset(r),.q(q));
-	dffr #(.N(1)) ff_2(.d(q),.clk(clk),.reset(r),.q(synch_out));
+	dffr #(.N(1)) ff_1(.d(asynch_in),.clk(clk),.r(reset),.q(q));
+	dffr #(.N(1)) ff_2(.d(q),.clk(clk),.r(reset),.q(synch_out));
 
 endmodule

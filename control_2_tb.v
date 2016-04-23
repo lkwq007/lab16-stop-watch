@@ -21,7 +21,7 @@ module control_2_tb_v;
 	// Instantiate the Unit Under Test (UUT)
 	control_2 control_2_tb(
 		.clk(clk), 
-		.ButtonOut(ButtonOut), 
+		.button_out(ButtonOut), 
 		.clear(clear), 
 		.count(count), 
 		.stop(stop), 

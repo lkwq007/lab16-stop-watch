@@ -38,9 +38,9 @@ module button_press_unit_tb;
 button_press_unit   button_press_unit_inst(
   .clk(clk),
   .reset(reset),
-  .ButtonIn(ButtonIn),
+  .button_in(ButtonIn),
   .timer_en(timer_en),
-  .ButtonOut(ButtonOut)
+  .button_out(ButtonOut)
    );
 
 endmodule

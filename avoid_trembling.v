@@ -1,7 +1,7 @@
 //==================================================================================================
 //  Filename      : avoid_trembling.v
 //  Created On    : 2016-04-18 15:01:39
-//  Last Modified : 2016-04-18 15:32:24
+//  Last Modified : 2016-04-23 20:10:19
 //  Revision      : 
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
@@ -10,18 +10,14 @@
 //
 //
 //==================================================================================================
-module avoid_trembling(clk,reset,in,out);
+module avoid_trembling(clk,reset,in,out,timer_clr,timer_done);
 	parameter HIGH=0,WAIT_LOW=1,LOW=2,WAIT_HIGH=3;
-	input clk,reset,in;
+	input clk,reset,in,timer_done;
 	output out;
-	wire en;
-	reg timer_clr,timer_done;
-
+	output reg timer_clr;
+	
 	reg[1:0] state=HIGH;
 
-	div #(.N(2**17),.CounterBits(18)) div(.clk(clk),.ci(1),.co(en));
-	timer #(.N(8),.CounterBits(3)) 
-		timer(.clk(clk),.ci(en),.reset(timer_clr),.co(timer_done));
 	assign out=state==HIGH?0:1;
 	always @(posedge clk) begin
 		if(reset) begin
