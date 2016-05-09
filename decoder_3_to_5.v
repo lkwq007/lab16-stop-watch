@@ -15,14 +15,15 @@ module decoder_3_to_5(data,position);
 	output[4:0] position;
 	reg[4:0] temp=0;
 
+	assign position=temp;
 	always @(data) begin
-		temp=0;
 		case (data)
-			0:temp=5'b00001;
-			1:temp=5'b00010;
-			2:temp=5'b00100;
-			3:temp=5'b01000;
-			4:temp=5'b10000;
+			0:temp<=5'b00001;
+			1:temp<=5'b00010;
+			2:temp<=5'b00100;
+			3:temp<=5'b01000;
+			4:temp<=5'b10000;
+			default: temp<=5'b00000;
 		endcase
 	end
 

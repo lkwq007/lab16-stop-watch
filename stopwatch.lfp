@@ -1,0 +1,12 @@
+# begin LFP file C:\lab16_201502\src\stopwatch.lfp
+designfile stopwatch.v
+parttype xc2vp30-7-ff896
+bus_delimiter 0;
+set_busdelim_onsave 1;
+IO_GROUP "position" IO_GROUP="stopwatch" ;
+INST "stopwatch" COLOR=15  ;
+NET "position<4>" IO_GROUP="position"  ;
+NET "position<3>" IO_GROUP="position"  ;
+NET "position<2>" IO_GROUP="position"  ;
+NET "position<1>" IO_GROUP="position"  ;
+NET "position<0>" IO_GROUP="position"  ;

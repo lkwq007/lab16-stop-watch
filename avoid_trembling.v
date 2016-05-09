@@ -13,37 +13,33 @@
 module avoid_trembling(clk,reset,in,out,timer_clr,timer_done);
 	parameter HIGH=0,WAIT_LOW=1,LOW=2,WAIT_HIGH=3;
 	input clk,reset,in,timer_done;
-	output out;
-	output reg timer_clr;
+	output out,timer_clr;
 	
 	reg[1:0] state=HIGH;
 
 	assign out=state==HIGH?0:1;
+	assign timer_clr=(state==HIGH||state==LOW);
 	always @(posedge clk) begin
 		if(reset) begin
 			state=HIGH;
 		end
 		case(state)
 			HIGH: begin
-				timer_clr=1;
 				if(in==0) begin
 					state=WAIT_LOW;
 				end
 			end
 			WAIT_LOW: begin
-				timer_clr=0;
 				if(timer_done) begin
 					state=LOW;
 				end
 			end
 			LOW: begin
-				timer_clr=1;
 				if(in) begin
 					state=WAIT_HIGH;
 				end
 			end
 			WAIT_HIGH: begin
-				timer_clr=0;
 				if(timer_done) begin
 					state=HIGH;
 				end

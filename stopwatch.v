@@ -88,7 +88,7 @@ module stopwatch(
 	wire stop;	
 	 control_2   control_inst(
 	   .clk(sys_clk), 
-	   .ButtonOut(ButtonOut),//ButtonOut(ButtonOut)
+	   .button_out(ButtonOut),//ButtonOut(ButtonOut)
 	   .clear(clear), 
 	   .count(count), 
 	   .stop(stop),

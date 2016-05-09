@@ -62,7 +62,7 @@ module stopwatch_tb_v;
 		#(DELY*80) ButtonIn = 1;
     #(DELY*5000)  ButtonIn = 0;//stop
 		#(DELY*60) ButtonIn = 1;
-		#(DELY*30) ButtonIn = 0;//reset
+		#(DELY*600) ButtonIn = 0;//reset
 		#(DELY*60) ButtonIn = 1;
 		#(DELY*10) $stop;
 	end

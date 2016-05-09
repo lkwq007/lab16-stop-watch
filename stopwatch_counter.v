@@ -11,7 +11,7 @@
 //
 //==================================================================================================
 module stopwatch_counter(clk,clr,count,stop,ci,co,q_ms,q_ss,q_mm);
-	input clk,clr,ci;
+	input clk,clr,ci,count,stop;
 	output co;
 	output[3:0] q_ms;
 	output[7:0] q_mm,q_ss;
@@ -20,7 +20,7 @@ module stopwatch_counter(clk,clr,count,stop,ci,co,q_ms,q_ss,q_mm);
 
 	assign en=ci&&count&&(!stop);
 	counter #(.N(10),.CounterBits(4)) ms_counter(.clk(clk),.clr(clr),.q(q_ms),.ci(en),.co(ms_co));
-	bcd_counter #(.N(8'b0101_1001)) ss_counter(.clk(clk),.clr(clr),.q(q_ss),.ci(ms_co),.co(ss_co));
-	bcd_counter #(.N(8'b0101_1001)) mm_counter(.clk(clk),.clr(clr),.q(q_mm),.ci(ss_co),.co(co));
+	bcd_counter #(.N(8'b0101_1001)) ss_counter(.clk(clk),.reset(clr),.q(q_ss),.ci(ms_co),.co(ss_co));
+	bcd_counter #(.N(8'b0101_1001)) mm_counter(.clk(clk),.reset(clr),.q(q_mm),.ci(ss_co),.co(co));
 
 endmodule

@@ -16,7 +16,7 @@ module pulse_width_convertor(clk,in,out);
 
 	wire q;
 
-	dffr #(.N(1)) ff(.clk(clk),.d(in),.r(0),.q(q));
+	dffr #(.N(1)) ff(.clk(clk),.d(in),.r(1'b0),.q(q));
 	assign out=in&(~q);
 
 endmodule

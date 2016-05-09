@@ -6,8 +6,7 @@
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //
-//  Description   : 五选一数据选择器
-//
+//  Description   : 五�?�一数据选择�?//
 //
 //==================================================================================================
 module mux_5_to_1(sel,in_0,in_1,in_2,in_3,in_4,out);
@@ -26,6 +25,8 @@ module mux_5_to_1(sel,in_0,in_1,in_2,in_3,in_4,out);
 			2:temp=in_2;
 			3:temp=in_3;
 			4:temp=in_4;
+			default: temp=0;
+		endcase
 	end
 
 endmodule
