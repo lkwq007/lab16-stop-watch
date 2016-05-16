@@ -1,12 +1,12 @@
 //==================================================================================================
 //  Filename      : div_q.v
 //  Created On    : 2016-04-22 09:26:42
-//  Last Modified : 2016-04-22 09:30:18
-//  Revision      : 
+//  Last Modified : 2016-05-16 21:00:40
+//  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //
-//  Description   : 输出状�?�的分频�?计数�?//
+//  Description   : 可输出状态的 N 分频器/计数器
 //
 //==================================================================================================
 module div_q(clk,ci,co,q);
@@ -14,7 +14,7 @@ module div_q(clk,ci,co,q);
 	input clk,ci;
 	output co;
 	output reg[CounterBits-1:0] q=0;
-
+	//可输出状态的 N 分频器/计数器
 	assign co=ci&&(q==N-1);
 	always @(posedge clk) begin
 		if(ci) begin

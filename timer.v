@@ -1,8 +1,8 @@
 //==================================================================================================
 //  Filename      : timer.v
 //  Created On    : 2016-04-18 14:58:26
-//  Last Modified : 2016-04-23 21:05:54
-//  Revision      : 
+//  Last Modified : 2016-05-16 21:10:10
+//  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //

@@ -1,12 +1,12 @@
 //==================================================================================================
 //  Filename      : BcdCounter.v
 //  Created On    : 2016-03-30 21:31:52
-//  Last Modified : 2016-04-22 21:29:49
-//  Revision      : Alpha
+//  Last Modified : 2016-05-16 20:52:45
+//  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //
-//  Description   : N base 8421 BCD Counter
+//  Description   : N+1 base 8421 BCD Counter
 //
 //
 //==================================================================================================
@@ -20,15 +20,15 @@ module bcd_counter(clk,reset,ci,co,q);
 	assign co=ci&&(q==N);
 	always @(posedge clk) begin
 		if(reset)
-			q=0;
+			q=0;//清零
 		else begin
 			if(ci) begin
 				if(q==N) begin
-					q=0;
+					q=0;//重置
 				end
 				else if(q[3:0]==9) begin
 					q[3:0]=0;
-					q[7:4]=q[7:4]+1;
+					q[7:4]=q[7:4]+1;//高位进位
 				end
 				else begin
 					q[3:0]=q[3:0]+1;

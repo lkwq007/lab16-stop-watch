@@ -1,12 +1,12 @@
 //==================================================================================================
 //  Filename      : control_2.v
 //  Created On    : 2016-04-23 21:13:07
-//  Last Modified : 2016-05-09 15:20:45
-//  Revision      : 
+//  Last Modified : 2016-05-16 20:56:02
+//  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //
-//  Description   : 
+//  Description   : 秒表控制器
 //
 //
 //==================================================================================================
@@ -16,13 +16,14 @@ module control_2 (clk,button_out,clear,count,stop,reset);
 	output clear,count,stop;
 
 	reg[1:0] state=RESET;
-	assign clear=(state==RESET);
-	assign count=(state==TIMING);
-	assign stop=(state==END);
+	assign clear=(state==RESET);//清零
+	assign count=(state==TIMING);//计数（计时）
+	assign stop=(state==END);//停止
 	always @(posedge clk) begin
 		if(reset) begin
-			state=RESET;
+			state=RESET;//状态重置
 		end
+		//状态轮换
 		case (state)
 			RESET: begin
 				if(button_out) begin

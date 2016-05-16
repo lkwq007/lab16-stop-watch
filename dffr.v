@@ -1,8 +1,8 @@
 //==================================================================================================
 //  Filename      : dffr.v
 //  Created On    : 2016-04-18 14:53:29
-//  Last Modified : 2016-04-18 15:06:48
-//  Revision      : alpha v20160418
+//  Last Modified : 2016-05-16 20:58:09
+//  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
 //
@@ -19,10 +19,10 @@ module dffr(clk,d,r,q);
 
 	always @(posedge clk) begin
 		if(r) begin
-			q=0;
+			q=0;//置零
 		end
 		else begin
-			q=d;
+			q=d;//置数
 		end
 	end
 
