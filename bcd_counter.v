@@ -19,11 +19,14 @@ module bcd_counter(clk,reset,ci,co,q);
 
 	assign co=ci&&(q==N);
 	always @(posedge clk) begin
-		if(q==N||reset)
+		if(reset)
 			q=0;
 		else begin
 			if(ci) begin
-				if(q[3:0]==9) begin
+				if(q==N) begin
+					q=0;
+				end
+				else if(q[3:0]==9) begin
 					q[3:0]=0;
 					q[7:4]=q[7:4]+1;
 				end
