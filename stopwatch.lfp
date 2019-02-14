@@ -1,4 +1,4 @@
-# begin LFP file E:\***REMOVED***\lab16_201502\src\stopwatch.lfp
+# begin LFP file E:\x\lab16_201502\src\stopwatch.lfp
 designfile stopwatch.v
 parttype xc2vp30-7-ff896
 bus_delimiter 0;

@@ -1,7 +1,7 @@
 //==================================================================================================
 //  Filename      : seg_decoder.v
 //  Created On    : 2016-04-22 09:39:14
-//  Last Modified : 2016-05-16 21:05:48
+//  Last Modified : 2019-02-14 09:21:46
 //  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com

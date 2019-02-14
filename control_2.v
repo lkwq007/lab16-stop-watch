@@ -1,7 +1,7 @@
 //==================================================================================================
 //  Filename      : control_2.v
 //  Created On    : 2016-04-23 21:13:07
-//  Last Modified : 2016-05-16 20:56:02
+//  Last Modified : 2019-02-14 09:21:54
 //  Revision      : final
 //  Author        : Lnyan
 //  Email         : lkwq007 [at] gmail.com
